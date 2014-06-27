@@ -46,6 +46,9 @@ fi
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 
+# copy extra modules
+cp $LP_DIR/modules/*.so $APACHE_PATH/modules
+
 cat >>boot.sh <<EOF
 sed -i 's/Listen 80/Listen '\$PORT'/' /app/apache/conf/httpd.conf
 for var in \`env|cut -f1 -d=\`; do
